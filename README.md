@@ -11,30 +11,6 @@ TDMA is a computationally efficient algorithm that reduces the complexity of sol
 - **Finite Difference Method (FDM)**  
 - **Finite Volume Method (FVM)**
 
-## Getting Started
-
-### Prerequisites
-- **MATLAB** (preferably R2018b or later)
-- Basic understanding of numerical methods and matrix operations.
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/iammohith/TDMA-Tridiagonal-Matrix-Algorithm-in-MATLAB.git
-   ```
-
-2. **Navigate to the project directory:**
-   ```bash
-   cd TDMA-Tridiagonal-Matrix-Algorithm-in-MATLAB
-   ```
-
-3. **Open the `TDMA.m` script in MATLAB:**
-   - Launch MATLAB and navigate to the project folder.
-   - Open `TDMA.m` to run the algorithm or modify it as needed.
-
-This section guides users on how to get started with your repository, including installation steps and basic usage.
-
 ## Files
 
 - `TDMA.m`: The main MATLAB function implementing the Thomas Algorithm. It accepts a tridiagonal matrix **A** and a constants vector **B**, and returns the solution vector **X**.
@@ -71,8 +47,27 @@ X = TDMA(A, B);
 disp(X);
 ```
 
-## Requirements
-- MATLAB installed on your machine.
+### Prerequisites
+- **MATLAB** (preferably R2018b or later)
+- Basic understanding of numerical methods and matrix operations.
+
+## Getting Started
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/iammohith/TDMA-Tridiagonal-Matrix-Algorithm-in-MATLAB.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd TDMA-Tridiagonal-Matrix-Algorithm-in-MATLAB
+   ```
+
+3. **Open the `TDMA.m` script in MATLAB:**
+   - Launch MATLAB and navigate to the project folder.
+   - Open `TDMA.m` to run the algorithm or modify it as needed.
 
 ## Acknowledgements
 I would like to acknowledge the following sources for their contributions to this project:
