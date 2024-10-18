@@ -1,4 +1,4 @@
-# TDMA - Tridiagonal Matrix Algorithm (Thomas Algorithm) in MATLAB
+# TDMA - Tridiagonal Matrix Algorithm (Thomas Algorithm)
 
 ## Overview
 
