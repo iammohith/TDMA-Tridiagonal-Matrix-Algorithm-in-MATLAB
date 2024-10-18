@@ -1,38 +1,34 @@
-function X = TDMA(A,B)
-%
-%  Function to solve tridiagonal matrix
-%  A*X = B
-%  A - Co-efficient square matrix / INPUT
-%  X - Unknown column matrix  / FINAL OUTPUT
-%  B - Constants column matrix / INPUT
-%
-m = size(A);
-if length(m) <= 1
-    error('The input should be a square matrix\n');
-elseif m(1)~= m(2)
-    error('The input should be a square matrix\n');
+function X = TDMA(A, B)
+% TDMA (Tridiagonal Matrix Algorithm) implementation to solve the system AX = B
+% A - Input tridiagonal coefficient matrix (square matrix)
+% B - Input column vector of constants
+% X - Output solution column vector
+
+% Check if A is a square matrix
+[m, n] = size(A);
+if m ~= n
+    error('Input matrix A must be square');
 end    
-%
-X = zeros(length(B),1); %preaalocating array for X matrix
-c = B;
-n = length(B);
-% getting the elements
-% d - diagonal elements $ b - below diagonal $ a - above diagonal
-d = diag(A);
-b = zeros(n,1);
-b(2:end) = diag(A,-1);
-a = zeros(n,1);
-a(1:end-1) = diag(A,+1);
+
+% Preallocate memory for the solution vector X
+X = zeros(n, 1); 
+c = B;  % Copy of B to use for forward elimination
+
+% Extracting the diagonal (d), sub-diagonal (b), and super-diagonal (a)
+d = diag(A);           % Main diagonal elements
+b = [0; diag(A, -1)];  % Sub-diagonal (below the main diagonal)
+a = [diag(A, 1); 0];   % Super-diagonal (above the main diagonal)
+
 % Forward Elimination
-dummy = zeros(n,1); % Temperarory Variable                                                       
-dummy(2:end) = b(2:end)./d(1:end-1);
-d(2:end) = d(2:end) - dummy(2:end).*a(1:end-1);
-c(2:end) = c(2:end) - dummy(2:end).*c(1:end-1);
+for i = 2:n
+    factor = b(i) / d(i - 1);  % Compute the factor for elimination
+    d(i) = d(i) - factor * a(i - 1);  % Update diagonal elements
+    c(i) = c(i) - factor * c(i - 1);  % Update constant vector
+end
+
 % Backward Substitution
-% Getting the last element
-X(end) = c(end)/d(end);
-% for remaining elements
+X(n) = c(n) / d(n);  % Compute the last element of X
 for i = n-1:-1:1
-    X(i) = (c(i) - a(i)*X(i+1))/d(i);
+    X(i) = (c(i) - a(i) * X(i + 1)) / d(i);  % Compute remaining elements of X
 end
 end
